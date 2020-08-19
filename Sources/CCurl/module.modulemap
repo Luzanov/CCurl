@@ -15,7 +15,7 @@
  **/
 
 module CCurl [system] {
-    header "shim.h"
+    header "CCurl.h"
     link "curl"
     export *
 }

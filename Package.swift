@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 /**
@@ -20,19 +20,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "CCurl",
-    providers: [
-        .brew(["curl"]),
-        .apt(["libcurl4-openssl-dev"])
-    ],
+    name: "ccurl",
     products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
-        .library(
-            name: "CCurl",
-            targets: ["CCurl"]
-        )
+        .library(name: "CCurl", targets: ["CCurl"]),
     ],
     targets: [
-        .target(name: "CCurl")
+        .systemLibrary(name: "CCurl", providers: [
+            .brew(["curl"]),
+            .apt(["libcurl4-openssl-dev"])
+        ])
     ]
 )

@@ -33,11 +33,6 @@ static inline CURLcode curlHelperSetOptList(CURL *curl, CURLoption option, struc
     return curl_easy_setopt(curl, option, list);
 }
 
-__attribute__((deprecated("curlHelperSetOptHeaders has been deprecated please use curlHelperSetOptList(curl, CURLOPT_HTTPHEADER, headers) instead")))
-static inline CURLcode curlHelperSetOptHeaders(CURL *curl, struct curl_slist *headers) {
-    return curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-}
-
 static inline CURLcode curlHelperSetOptInt(CURL *curl, CURLoption option, long data) {
     return curl_easy_setopt(curl, option, data);
 }
